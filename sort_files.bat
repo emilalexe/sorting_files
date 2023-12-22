@@ -7,24 +7,24 @@ for %%f in (*.pdf) do ren "%%f" "%%~nf-%tDATE%%%~xf"
 
 :Check_DirOfN
 Set/A "DirOfN+=1"
-If Exist "Oferta\%DirOfN%" GoTo Check_DirOfN
+If Exist "OFFERS\%DirOfN%" GoTo Check_DirOfN
 cls
-echo Moving files to Directory Oferta\%DirOfN%...
+echo Moving files to Directory OFFERS\%DirOfN%...
 Set "limit=20"
 For %%o In (O*.pdf) Do (
-    RoboCopy . "Oferta\%DirOfN%" "%%o" /MOV 1>NUL
+    RoboCopy . "OFFERS\%DirOfN%" "%%o" /MOV 1>NUL
     Set/A "limit-=1"
     If !limit! Equ 0 GoTo Check_DirOfN
 )
 
 :Check_DirAvN
 Set/A "DirAvN+=1"
-If Exist "Aviz\%DirAvN%" GoTo Check_DirAvN
+If Exist "ANNOUNCEMENTS\%DirAvN%" GoTo Check_DirAvN
 cls
-echo Moving files to Directory Aviz\%DirAvN%...
+echo Moving files to Directory ANNOUNCEMENTS\%DirAvN%...
 Set "limit=20"
 For %%a In (A*.pdf) Do (
-    RoboCopy . "Aviz\%DirAvN%" "%%a" /MOV 1>NUL
+    RoboCopy . "ANNOUNCEMENTS\%DirAvN%" "%%a" /MOV 1>NUL
     Set/A "limit-=1"
     If !limit! Equ 0 GoTo Check_DirAvN
 )
